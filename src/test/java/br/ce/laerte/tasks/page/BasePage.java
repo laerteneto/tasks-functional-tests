@@ -22,7 +22,6 @@ public class BasePage {
 		clicar(By.xpath("//*[@text='" + texto + "']"));
 	}
 
-///////// Métodos coringa pouco utilizados
 	public void esperaForcada(int tempo) {
 		try {
 			Thread.sleep(tempo);
