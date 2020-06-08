@@ -54,4 +54,21 @@ public class TasksTest extends BaseTest {
 		Assert.assertEquals("Fill the task description", page.obterTexto(By.id("message")));
 
 	}
+
+	@Test
+	public void deveRemoverTarefaComSucesso() {
+		// Setup
+		double codigoTask = Math.random();
+		String testName = "Teste a ser deletado " + codigoTask;
+		page.clicar(By.id("addTodo"));
+		page.escrever(By.id("task"), testName);
+		page.escrever(By.id("dueDate"), "10/10/2030");
+		page.clicar(By.id("saveButton"));
+		Assert.assertEquals("Success!", page.obterTexto(By.id("message")));
+
+		// Test
+		page.clicar(By.xpath("//td[text()='" + testName + "']/following-sibling::td/a[text()='Remove']"));
+		Assert.assertEquals("Success!", page.obterTexto(By.id("message")));
+
+	}
 }
